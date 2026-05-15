@@ -4,6 +4,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.sqlite import SqliteSaver
 import sqlite3
 
+#nodes
 class MathState(TypedDict):
     input_number: float
     human_decision: str
@@ -52,11 +53,10 @@ builder.add_edge("add", END)
 graph = builder.compile(checkpointer=memory)
 
 config = {"configurable": {"thread_id": "1"}}
-# print("--- Starting Graph ---")
-# initial_input = {"input_number": 10}
-# result = graph.invoke(initial_input, config)
-# print(result)
-
+ #print("--- Starting Graph ---")
+ #initial_input = {"input_number": 10}
+ #result = graph.invoke(initial_input, config)
+ #print(result)
 
 print("--- Resuming Graph ---")
 try:
